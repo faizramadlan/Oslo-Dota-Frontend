@@ -1,14 +1,10 @@
-<script>
+<script setup>
+import { Analytics } from '@vercel/analytics/vue';
 import Sidebar from './components/Sidebar.vue'
-
-export default {
-  components: {
-    Sidebar
-  }
-}
 </script>
 
 <template>
+  <Analytics />
   <div class="flex min-h-screen">
     <Sidebar />
     
