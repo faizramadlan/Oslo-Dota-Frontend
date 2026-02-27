@@ -14,10 +14,16 @@ export const useAppStore = defineStore('app', {
     handleError(error) {
       console.error(error);
       const message = error.response?.data?.message || error.message || 'An unexpected error occurred';
-      Swal.fire({
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+      Toast.fire({
         icon: 'error',
-        title: 'Oops...',
-        text: message
+        title: message
       });
     },
     async getHeroes() {
